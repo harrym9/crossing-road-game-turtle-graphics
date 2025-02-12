@@ -34,9 +34,10 @@ while game_is_on:
         score.update_score()
 
     # Detect when turtle(player) collision with cars.
-    if cars.check_collision(turtle):
-        score.game_over()
-        game_is_on = False
+    for car in cars.cars:
+        if turtle.distance(car) <= 23:
+            score.game_over()
+            game_is_on = False
 
     counter_for_car += 1
 
