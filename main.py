@@ -35,6 +35,7 @@ while game_is_on:
 
     # Detect when turtle(player) collision with cars.
     if cars.check_collision(turtle):
+        score.game_over()
         game_is_on = False
 
     counter_for_car += 1
