@@ -9,11 +9,12 @@ screen.listen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-turtle = Player()
+turtle = Player()  # turtle(player) object creating
 screen.onkey(key="Up", fun=turtle.move_up)
 screen.onkey(key="Down", fun=turtle.move_down)
 
-cars = CarManager()
+cars = CarManager()  # cars object creating
+score = Scoreboard()  # score object creating
 
 counter_for_car = 0
 game_is_on = True
@@ -30,6 +31,7 @@ while game_is_on:
     if turtle.ycor() >= 280:
         turtle.reset_finish()
         cars.increase_cars_speed()
+        score.update_score()
 
     # Detect when turtle(player) collision with cars.
     if cars.check_collision(turtle):
