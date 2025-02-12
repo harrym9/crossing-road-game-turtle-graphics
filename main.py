@@ -20,6 +20,7 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+
     if counter_for_car == 5:  # add new car every 6th loop
         cars.make_a_car()
         counter_for_car = 0
@@ -30,4 +31,10 @@ while game_is_on:
         turtle.reset_finish()
         cars.increase_cars_speed()
 
+    # Detect when turtle(player) collision with cars.
+    if cars.check_collision(turtle):
+        game_is_on = False
+
     counter_for_car += 1
+
+screen.exitonclick()
